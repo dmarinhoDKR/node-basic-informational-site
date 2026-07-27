@@ -11,8 +11,37 @@
 </head>
 <body>
     <main>
-        <h1><%= title %></h1>
-        <p>Express and EJS are working.</p>
+        <header class="page-header">
+            <p class="eyebrow">The Odin Project</p>
+            <h1><%= title %></h1>
+            <p>Messages are stored in memory and reset when the server restarts.</p>
+        </header>
+
+        <section aria-labelledby="messages-heading">
+            <h2 id="messages-heading">Messages</h2>
+
+            <% if (messages.length === 0) { %>
+                <p>No messages have been posted yet.</p>
+            <% } else { %>
+                <ul class="message-list">
+                    <% messages.forEach((message) => { %>
+                        <li class="message-card">
+                            <div class="message-meta">
+                                <strong><%= message.user %></strong>
+                                <time datetime="<%= message.added.toISOString() %>">
+                                    <%= message.added.toLocaleString("en-US", {
+                                        dateStyle: "medium",
+                                        timeStyle: "short",
+                                    }) %>
+                                </time>
+                            </div>
+
+                            <p><%= message.text %></p>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } %>
+        </section>
     </main>
 </body>
 </html>
