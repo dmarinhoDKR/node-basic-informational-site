@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <main>
+        <header class="page-header">
+            <p class="eyebrow">The Odin Project</p>
+            <h1><%= title %></h1>
+            <p>Messages are stored in memory and reset when the server restarts.</p>
+            <a class="button-link" href="/new">New message</a>
+        </header>
+
+        <section aria-labelledby="messages-heading">
+            <h2 id="messages-heading">Messages</h2>
+
+            <% if (messages.length === 0) { %>
+                <p>No messages have been posted yet.</p>
+            <% } else { %>
+                <ul class="message-list">
+                    <% messages.forEach((message, index) => { %>
+                        <li class="message-card">
+                            <div class="message-meta">
+                                <strong><%= message.user %></strong>
+                                <time datetime="<%= message.added.toISOString() %>">
+                                    <%= message.added.toLocaleString("en-US", {
+                                        dateStyle: "medium",
+                                        timeStyle: "short",
+                                    }) %>
+                                </time>
+                            </div>
+
+                            <p><%= message.text %></p>
+                            <a
+                               class="message-link"
+                               href="/messages/<%= index %>"
+                            >
+                               Open
+                            </a>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } %>
+        </section>
+    </main>
+</body>
+</html>
