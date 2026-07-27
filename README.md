@@ -32,12 +32,11 @@ Users can view messages, open an individual message, and submit new messages thr
 
 ## Run locally
 
-Clone the repository and switch to the project branch:
+Clone the repository:
 
 ```bash
 git clone https://github.com/dmarinhoDKR/node-basic-informational-site.git
 cd node-basic-informational-site
-git switch mini-message-board
 ```
 
 Install the dependencies:
