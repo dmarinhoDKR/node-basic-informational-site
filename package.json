@@ -1,7 +1,7 @@
 {
-  "name": "basic-informational-site",
+  "name": "mini-message-board",
   "version": "1.0.0",
-  "description": "A basic informational website served with Node.js",
+  "description": "A small message board built with Express and EJS",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -10,5 +10,9 @@
   "keywords": [],
   "author": "Daniel Figueredo",
   "license": "MIT",
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
+  }
 }
