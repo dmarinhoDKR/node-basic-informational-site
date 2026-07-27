@@ -38,4 +38,29 @@ indexRouter.post("/new", (request, response) => {
     response.redirect("/");
 });
 
+indexRouter.get(
+    "/messages/:messageIndex",
+    (request, response) => {
+        const messageIndex = Number(
+            request.params.messageIndex,
+        );
+
+        const message = Number.isInteger(messageIndex)
+            ? messages[messageIndex]
+            : undefined;
+
+        if (!message) {
+            response
+                .status(404)
+                .send("Message not found");
+            return;
+        }
+
+        response.render("message", {
+            title: "Message Details",
+            message,
+        });
+    },
+);
+
 module.exports = indexRouter;

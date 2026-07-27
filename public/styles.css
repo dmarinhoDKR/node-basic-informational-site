@@ -116,3 +116,14 @@ form {
     gap: 1rem;
     align-items: center;
 }
+
+.message-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #4f46e5;
+    font-weight: 700;
+}
+
+.detail-actions {
+    margin-top: 1.5rem;
+}

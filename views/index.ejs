@@ -25,7 +25,7 @@
                 <p>No messages have been posted yet.</p>
             <% } else { %>
                 <ul class="message-list">
-                    <% messages.forEach((message) => { %>
+                    <% messages.forEach((message, index) => { %>
                         <li class="message-card">
                             <div class="message-meta">
                                 <strong><%= message.user %></strong>
@@ -38,6 +38,12 @@
                             </div>
 
                             <p><%= message.text %></p>
+                            <a
+                               class="message-link"
+                               href="/messages/<%= index %>"
+                            >
+                               Open
+                            </a>
                         </li>
                     <% }); %>
                 </ul>
